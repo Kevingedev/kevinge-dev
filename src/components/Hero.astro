@@ -67,7 +67,7 @@ const avatar: Avatar = {
         >
             I’m <span class="text-red-500 font-semibold">Kevin</span>, a
             Full-Stack Developer with <span
-                class="experience-trigger text-red-500 font-semibold cursor-pointer relative inline-block transition-all duration-300 hover:text-red-400"
+                class="experience-trigger link-pulse text-red-500 font-semibold cursor-pointer relative inline-block transition-all duration-300 hover:text-red-400 "
                 data-open-experience
             >
                 + three years of experience
@@ -360,6 +360,11 @@ const avatar: Avatar = {
         animation: pulse-dot 2s ease-in-out infinite;
     }
 
+    /* Status dot pulse animation */
+    .link-pulse {
+        animation: link-pulse 2s ease-in-out infinite;
+    }
+
     @keyframes pulse-dot {
         0%,
         100% {
@@ -375,6 +380,18 @@ const avatar: Avatar = {
             box-shadow:
                 0 0 12px rgba(239, 68, 68, 1),
                 0 0 24px rgba(239, 68, 68, 0.6);
+        }
+    }
+
+    @keyframes link-pulse {
+        0%,
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.02);
         }
     }
 
