@@ -1,0 +1,265 @@
+---
+// Navbar component with glassmorphism effect and red theme
+---
+
+<nav
+  class="sticky top-0 z-[1000] w-full bg-[rgba(5,0,0,0.2)] backdrop-blur-md border-b border-red-500/10 transition-all duration-300"
+>
+  <div
+    class="max-w-[1200px] mx-auto px-8 py-4 flex items-center justify-between gap-4 md:px-6 sm:px-4"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-2 no-underline font-bold text-xl text-white hover:scale-105 transition-transform duration-300"
+    >
+      <span class="text-red-500 font-extrabold text-2xl leading-none"
+        >&lt;/&gt;</span
+      >
+      <span class="font-bold hidden sm:inline"
+        >Kevin<span class="text-red-500">.dev</span></span
+      >
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <ul class="hidden md:flex list-none m-0 p-0 items-center gap-10">
+      <li>
+        <a
+          href="#about"
+          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+        >
+          About
+        </a>
+      </li>
+      <li>
+        <a
+          href="#projects"
+          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+        >
+          Projects
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-4 md:gap-3">
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        aria-label="Toggle theme"
+        class="bg-transparent border border-red-500/20 rounded-full w-10 h-10 md:w-9 md:h-9 flex items-center justify-center cursor-pointer text-white transition-all duration-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-500"
+      >
+        <svg
+          class="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <svg
+          class="moon-icon hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Hire Me Button -->
+      <a
+        href="#contact"
+        class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 md:px-5 md:py-2 rounded-full font-semibold text-[0.95rem] md:text-sm text-white bg-gradient-to-br from-red-500 to-red-600 shadow-[0_4px_14px_0_rgba(239,68,68,0.2)] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_0_rgba(239,68,68,0.4)] hover:from-red-600 hover:to-red-500 active:translate-y-0"
+      >
+        Hire Me
+      </a>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        id="mobile-menu-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        class="md:hidden flex flex-col gap-1 bg-transparent border-0 cursor-pointer p-2 w-8 h-8 justify-center"
+      >
+        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        ></span>
+        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        ></span>
+        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        ></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Navigation (Moved outside to ensure visibility) -->
+  <ul
+    id="nav-menu"
+    aria-expanded="false"
+    class="flex md:hidden list-none m-0 p-0 items-center fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-[rgba(5,0,0,0.98)] backdrop-blur-xl flex-col justify-start p-8 gap-8 -translate-x-full transition-transform duration-300 ease-in-out border-t border-red-500/10 z-[999]"
+  >
+    <li>
+      <a
+        href="#about"
+        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+      >
+        About
+      </a>
+    </li>
+    <li>
+      <a
+        href="#projects"
+        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+      >
+        Projects
+      </a>
+    </li>
+    <li>
+      <a
+        href="#contact"
+        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+      >
+        Contact
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  /* Navigation link underline effect */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ef4444;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile menu expanded state */
+  #nav-menu[aria-expanded="true"] {
+    transform: translateX(0) !important;
+  }
+
+  /* Mobile menu toggle animation */
+  #mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  #mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  #mobile-menu-toggle:hover span {
+    background: #ef4444;
+  }
+
+  /* Theme toggle icon visibility */
+  #theme-toggle[data-theme="dark"] .sun-icon {
+    display: none;
+  }
+
+  #theme-toggle[data-theme="dark"] .moon-icon {
+    display: block;
+  }
+</style>
+
+<script is:inline>
+  function initNavbar() {
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+
+    if (mobileMenuToggle && navMenu) {
+      mobileMenuToggle.addEventListener("click", () => {
+        const isExpanded =
+          mobileMenuToggle.getAttribute("aria-expanded") === "true";
+        const newState = !isExpanded;
+
+        mobileMenuToggle.setAttribute("aria-expanded", String(newState));
+        navMenu.setAttribute("aria-expanded", String(newState));
+
+        if (newState) {
+          navMenu.classList.remove("-translate-x-full");
+          navMenu.classList.add("translate-x-0");
+        } else {
+          navMenu.classList.remove("translate-x-0");
+          navMenu.classList.add("-translate-x-full");
+        }
+      });
+
+      const navLinks = navMenu.querySelectorAll(".nav-link-mobile");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenuToggle.setAttribute("aria-expanded", "false");
+          navMenu.setAttribute("aria-expanded", "false");
+          navMenu.classList.remove("translate-x-0");
+          navMenu.classList.add("-translate-x-full");
+        });
+      });
+    }
+
+    const themeToggle = document.getElementById("theme-toggle");
+    if (themeToggle) {
+      const currentTheme = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      themeToggle.setAttribute("data-theme", currentTheme);
+
+      themeToggle.addEventListener("click", () => {
+        const currentTheme =
+          document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        themeToggle.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+    }
+  }
+
+  // Initialize on full load
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNavbar);
+  } else {
+    initNavbar();
+  }
+
+  // Re-initialize after view transitions
+  document.addEventListener("astro:after-swap", initNavbar);
+</script>

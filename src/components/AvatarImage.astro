@@ -1,0 +1,26 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+    src: ImageMetadata;
+    alt: string;
+    fallbackBg?: string;
+}
+
+const { src, alt, fallbackBg = "#1e293b" } = Astro.props;
+---
+
+<article>
+    <div style={`background-color: ${fallbackBg};`}>
+        <Image
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            class="project-image w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-in-out"
+            widths={[320, 480, 640]}
+            sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 640px"
+        />
+    </div>
+</article>

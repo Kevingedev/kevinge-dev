@@ -1,0 +1,309 @@
+---
+// ExperienceModal.astro
+// Premium Glassmorphism Modal for Work Experience
+---
+
+<div id="experience-modal" class="modal-backdrop hidden">
+    <div class="modal-container animate-modal-in">
+        <div class="modal-glass"></div>
+
+        <!-- Header -->
+        <div class="modal-header">
+            <h2 class="text-3xl font-bold text-white m-0">
+                Work <span class="text-red-500">Experience</span>
+            </h2>
+            <button id="close-modal" class="close-btn" aria-label="Close modal">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M18 6L6 18M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="modal-content custom-scrollbar">
+            <div class="experience-list">
+                <!-- Experience Item 1 -->
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-line"></div>
+                    <div class="experience-info">
+                        <span
+                            class="experience-date text-red-500 font-semibold text-sm uppercase tracking-wider"
+                            >2021 - 2025</span
+                        >
+                        <h3
+                            class="experience-title text-xl font-bold text-white mt-1"
+                        >
+                            Full-Stack Developer
+                        </h3>
+                        <p
+                            class="experience-company text-[#fca5a5] font-medium mb-2"
+                        >
+                            ALL AMERICAN TRAVEL
+                        </p>
+                        <p
+                            class="experience-description text-slate-400 leading-relaxed text-sm"
+                        >
+                            Lideré la evolución y mantenimiento del sistema
+                            principal, migrando la infraestructura de PHP nativo
+                            a Laravel para mejorar la escalabilidad. Implementé
+                            nuevas funcionalidades y reportes de ventas
+                            cruciales, manejando la persistencia de datos con
+                            MySQL y SQL Server.
+                        </p>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Backdrop */
+    .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(5, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 20px;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.4s ease-in-out,
+            visibility 0.4s ease-in-out;
+    }
+
+    .modal-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Container */
+    .modal-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        max-height: 80vh;
+        background: rgba(10, 1, 1, 0.9);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: 24px;
+        box-shadow:
+            0 25px 50px -12px rgba(0, 0, 0, 0.5),
+            0 0 30px rgba(239, 68, 68, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-backdrop.active .modal-container {
+        transform: scale(1) translateY(0);
+    }
+
+    /* Glass Effect Layer */
+    .modal-glass {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at top left,
+            rgba(239, 68, 68, 0.05) 0%,
+            transparent 50%
+        );
+        pointer-events: none;
+    }
+
+    /* Header */
+    .modal-header {
+        position: relative;
+        padding: 30px 40px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+    }
+
+    /* Close Button */
+    .close-btn {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        color: #fca5a5;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+        background: rgba(239, 68, 68, 0.2);
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    /* Content */
+    .modal-content {
+        position: relative;
+        padding: 20px 40px 40px;
+        overflow-y: auto;
+        z-index: 10;
+    }
+
+    /* Experience Timeline */
+    .experience-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .experience-item {
+        position: relative;
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+
+    .experience-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .experience-dot {
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        background: #ef4444;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+        z-index: 2;
+    }
+
+    .experience-line {
+        position: absolute;
+        left: 5px;
+        top: 20px;
+        bottom: 0px;
+        width: 2px;
+        background: linear-gradient(to bottom, #ef4444, rgba(239, 68, 68, 0.1));
+        z-index: 1;
+    }
+
+    .experience-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(239, 68, 68, 0.2);
+        border-radius: 20px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(239, 68, 68, 0.4);
+    }
+
+    /* Animations */
+    @keyframes modal-in {
+        from {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 640px) {
+        .modal-header {
+            padding: 20px 25px 10px;
+        }
+        .modal-content {
+            padding: 10px 25px 30px;
+        }
+        .modal-container {
+            max-height: 90vh;
+        }
+    }
+</style>
+
+<script>
+    const modal = document.getElementById("experience-modal");
+    const closeBtn = document.getElementById("close-modal");
+    const trigger = document.querySelector("[data-open-experience]");
+
+    function openModal() {
+        if (!modal) return;
+        modal.classList.remove("hidden");
+        // Force reflow
+        modal.offsetHeight;
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove("active");
+        setTimeout(() => {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+        }, 400);
+    }
+
+    if (trigger) {
+        trigger.addEventListener("click", (e) => {
+            e.preventDefault();
+            openModal();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    // Close on click outside
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // Close on escape
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal && modal.classList.contains("active")) {
+            closeModal();
+        }
+    });
+</script>

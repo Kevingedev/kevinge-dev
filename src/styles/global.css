@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Global Styles */
+body {
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(239, 68, 68, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: rgba(239, 68, 68, 0.3);
+  color: #ffffff;
+}

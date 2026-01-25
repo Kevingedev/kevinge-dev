@@ -1,0 +1,104 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+interface Props {
+    src: ImageMetadata;
+    alt: string;
+    fallbackBg?: string;
+}
+
+const { src, alt, fallbackBg = "#1e293b" } = Astro.props;
+---
+
+<div
+    class="project-image-container relative w-full h-48 overflow-hidden"
+    style={`background-color: ${fallbackBg};`}
+>
+    <Image
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        class="project-image w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-in-out"
+        widths={[320, 480, 640]}
+        sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 640px"
+    />
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-red-500/0 group-hover:from-red-500/10 group-hover:to-red-500/5 transition-all duration-500 ease-out"
+    >
+    </div>
+    <div
+        class="absolute inset-0 bg-gradient-to-t from-[#0a0101]/80 via-transparent to-transparent opacity-60"
+    >
+    </div>
+</div>
+
+<style>
+    .project-image-container {
+        position: relative;
+    }
+
+    .project-image {
+        opacity: 1;
+        transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
+    }
+
+    .project-image.loading {
+        opacity: 0;
+    }
+
+    .project-image.loaded {
+        opacity: 1;
+    }
+
+    /* Fallback placeholder when image fails to load */
+    .project-image.error {
+        opacity: 0;
+    }
+
+    .project-image-container.error::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        background-color: rgba(239, 68, 68, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(
+            ".project-image",
+        ) as NodeListOf<HTMLImageElement>;
+
+        images.forEach((img) => {
+            img.classList.add("loading");
+
+            if (img.complete) {
+                img.classList.remove("loading");
+                img.classList.add("loaded");
+            } else {
+                img.addEventListener("load", () => {
+                    img.classList.remove("loading");
+                    img.classList.add("loaded");
+                });
+
+                img.addEventListener("error", () => {
+                    img.classList.remove("loading");
+                    img.classList.add("error");
+                    img.parentElement?.classList.add("error");
+                });
+            }
+        });
+    });
+</script>

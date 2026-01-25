@@ -1,0 +1,327 @@
+---
+// ProjectCarousel component with Swiper.js
+import ProjectImage from './ProjectImage.astro';
+import ProjectModal from './ProjectModal.astro';
+import type { ImageMetadata } from 'astro';
+
+// Import project images
+import gourmetImg from '../assets/projects/gourmetonthego.png';
+import cvAnalyzerImg from '../assets/projects/cv-analyzer.png';
+import frogGameImg from '../assets/projects/frog-game-inicio.jpg';
+import unitySalesImg from '../assets/projects/unitysales.png';
+import flowMoviesImg from '../assets/projects/flowmovies.png';
+
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  imageBg: string;
+  technologies: string[];
+  link: string;
+  github?: string;
+}
+
+// Sample projects data - replace with your actual projects
+const projects: Project[] = [
+  {
+    id: 0,
+    title: 'Flow Movies',
+    description: 'Es una aplicación web que a través de una API permite a los usuarios buscar y ver películas y series en línea. (Colaboración con Fediraly)',
+    image: flowMoviesImg,
+    imageBg: '#1e293b',
+    technologies: ['Astro', 'TypeScript', 'API REST', 'Tailwind'],
+    link: 'https://movies.fediraly.net/',
+    github: 'https://github.com/Kevingedev/flow-movies.git'
+  },
+  {
+    id: 1,
+    title: 'Unity Sales',
+    description: 'Unity Sales es una aplicación web moderna de gestión de ventas e inventario diseñada para optimizar las operaciones comerciales incluyendo inteligencia.',
+    image: unitySalesImg,
+    imageBg: '#0a0a0f',
+    technologies: ['Next.js', 'JavaScript', 'Supabase', 'Tailwind'],
+    link: 'https://unity-sales.vercel.app/login',
+    github: 'https://github.com/Kevingedev/unity-sales.git'
+  },
+  {
+    id: 2,
+    title: 'E-Commerce (Gourmet on the Go)',
+    description: 'Es una tienda online moderna enfocada en la venta de alimentos precocinados.',
+    image: gourmetImg,
+    imageBg: '#1e293b',
+    technologies: ['JavaScript', 'HTML', 'CSS', 'JSON Server'],
+    link: 'https://kevingedev.github.io/Gourmet-on-the-Go',
+    github: 'https://github.com/Kevingedev/Gourmet-on-the-Go.git'
+  },
+  {
+    id: 3,
+    title: 'CV Analyzer',
+    description: 'Desarrollo de un Analizador Inteligente de Currículums para optimizar la selección de personal.',
+    image: cvAnalyzerImg,
+    imageBg: '#0f172a',
+    technologies: ['PHP', 'Laravel', 'MySQL', 'Tailwind', 'Python'],
+    link: 'https://example.com',
+    github: 'https://github.com/kevingedev/cv-analyzer'
+  },
+  {
+    id: 4,
+    title: 'Frog Game',
+    description: 'Frog Game es un juego de lógica móvil desarrollado para Android, implementado en Java y utilizando Android Studio.',
+    image: frogGameImg,
+    imageBg: '#1a1a2e',
+    technologies: ['Kotlin', 'Java'],
+    link: 'https://example.com',
+    github: 'https://github.com/kevingedev/frog-game.git'
+  },
+];
+---
+
+<section id="projects" class="relative w-full py-20 bg-[#050000]">
+  <div class="max-w-[1200px] mx-auto px-6 mt-10">
+    <!-- Section Header with Navigation -->
+    <div class="flex items-center justify-between">
+      <h2 class="text-4xl md:text-3xl sm:text-2xl font-extrabold text-white">
+        Featured <span class="text-red-500">Projects</span>
+      </h2>
+
+      <!-- Navigation Buttons -->
+      <div class="flex items-center gap-3">
+        <button
+          class="swiper-button-prev-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-white hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
+          aria-label="Previous project"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button
+          class="swiper-button-next-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-white hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
+          aria-label="Next project"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper project-swiper">
+      <div class="swiper-wrapper py-10 px-2">
+        {projects.map((project) => (
+          <div class="swiper-slide">
+            <div 
+              class="project-card h-full group relative bg-[#0a0101] rounded-[24px] overflow-hidden border border-red-500/10 hover:border-red-500/30 transition-all duration-500 ease-out flex flex-col cursor-pointer"
+              data-open-modal-id={project.id}
+            >
+              <!-- Image Container -->
+              <ProjectImage
+                src={project.image}
+                alt={project.title}
+                fallbackBg={project.imageBg}
+              />
+
+              <!-- Content -->
+              <div class="p-6 flex flex-col flex-grow">
+                <!-- Title with External Link Icon -->
+                <div class="flex items-start justify-between mb-3">
+                  <h3 class="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-500 ease-out">
+                    {project.title.slice(0, 20)}...
+                  </h3>
+                  <div class="flex gap-3">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-link-icon text-slate-400 hover:text-red-500 transition-colors duration-500 ease-out"
+                        aria-label={`GitHub for ${project.title}`}
+                        title={`GitHub for ${project.title}`}
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                      </a>
+                    )}
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="project-link-icon text-slate-400 hover:text-red-500 transition-colors duration-500 ease-out"
+                      aria-label={`Visit ${project.title}`}
+                      title={`Visit ${project.title}`}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+                  {project.description.slice(0, 50)}...
+                </p>
+
+                <!-- Technologies Badges -->
+                <div class="flex flex-wrap gap-2 mt-auto">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#450a0a] text-[#fca5a5] border border-red-500/20">
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#450a0a] text-[#fca5a5] border border-red-500/20">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modals -->
+  {projects.map((project) => (
+    <ProjectModal project={project} />
+  ))}
+</section>
+
+<!-- Swiper CSS and JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<style is:global>
+  .project-swiper {
+    padding: 20px 0 40px 0;
+    overflow: visible;
+  }
+
+  .project-swiper .swiper-wrapper {
+    display: flex;
+  }
+
+  .swiper-slide {
+    height: auto;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    opacity: 0.7;
+  }
+
+  .project-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .swiper-slide-active .project-card {
+    box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.1), 0 8px 10px -6px rgba(239, 68, 68, 0.1);
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -10px rgba(239, 68, 68, 0.15), 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+  }
+
+  .swiper-slide-active .project-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(239, 68, 68, 0.2), 0 12px 24px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Custom navigation button styles */
+  .swiper-button-prev-custom:disabled,
+  .swiper-button-next-custom:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  // Declare Swiper on Window interface for TypeScript
+  declare global {
+    interface Window {
+      Swiper: any;
+    }
+  }
+
+  // Load Swiper script
+  const swiperScript = document.createElement('script');
+  swiperScript.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+  swiperScript.async = true;
+
+  swiperScript.onload = function() {
+    function initSwiper() {
+      const swiperEl = document.querySelector('.project-swiper');
+      if (!swiperEl) {
+        setTimeout(initSwiper, 100);
+        return;
+      }
+
+      if (typeof window.Swiper !== 'undefined') {
+        // @ts-ignore
+        const swiper = new window.Swiper('.project-swiper', {
+          slidesPerView: 1,
+          spaceBetween: 24,
+          loop: true,
+          grabCursor: true,
+          speed: 600,
+          navigation: {
+            nextEl: '.swiper-button-next-custom',
+            prevEl: '.swiper-button-prev-custom',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 24,
+            },
+          },
+        });
+        // console.log(swiper);
+      } else {
+        setTimeout(initSwiper, 100);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSwiper);
+    } else {
+      initSwiper();
+    }
+  };
+
+  document.head.appendChild(swiperScript);
+
+  // Modal logic
+  document.addEventListener('click', (e) => {
+    const card = (e.target as HTMLElement).closest('.project-card');
+    const isIcon = (e.target as HTMLElement).closest('.project-link-icon');
+    
+    if (card && !isIcon) {
+      const projectId = card.getAttribute('data-open-modal-id');
+      if (projectId) {
+        window.dispatchEvent(new CustomEvent('trigger-project-modal', {
+          detail: { id: projectId }
+        }));
+      }
+    }
+  });
+</script>
