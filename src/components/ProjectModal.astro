@@ -19,7 +19,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const modalId = `modal-project-${project.id}`;  
+const modalId = `modal-project-${project.id}`;
 ---
 
 <div id={modalId} class="project-modal-backdrop hidden">
@@ -273,12 +273,26 @@ const modalId = `modal-project-${project.id}`;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .project-preview-container:hover .project-preview-image {
+        transform: scale(1.08);
     }
 
     .image-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(10, 1, 1, 0.4), transparent);
+        background: linear-gradient(
+            to top,
+            rgba(10, 1, 1, 0.6),
+            transparent 60%
+        );
+        transition: opacity 0.5s ease;
+    }
+
+    .project-preview-container:hover .image-overlay {
+        opacity: 0.8;
     }
 
     /* Buttons */
