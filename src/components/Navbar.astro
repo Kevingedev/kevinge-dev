@@ -3,7 +3,7 @@
 ---
 
 <nav
-  class="sticky top-0 z-[1000] w-full bg-[rgba(5,0,0,0.2)] backdrop-blur-md border-b border-red-500/10 transition-all duration-300"
+  class="sticky top-0 z-[1000] w-full bg-[var(--nav-bg)] backdrop-blur-md border-b border-[var(--border-color)] transition-all duration-300"
 >
   <div
     class="max-w-[1200px] mx-auto px-8 py-4 flex items-center justify-between gap-4 md:px-6 sm:px-4"
@@ -11,7 +11,7 @@
     <!-- Logo -->
     <a
       href="/"
-      class="flex items-center gap-2 no-underline font-bold text-xl text-white hover:scale-105 transition-transform duration-300"
+      class="flex items-center gap-2 no-underline font-bold text-xl text-[var(--text-primary)] hover:scale-105 transition-transform duration-300"
     >
       <span class="text-red-500 font-extrabold text-2xl leading-none"
         >&lt;/&gt;</span
@@ -26,7 +26,7 @@
       <li>
         <a
           href="#about"
-          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+          class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
           About
         </a>
@@ -34,7 +34,7 @@
       <li>
         <a
           href="#projects"
-          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+          class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
           Projects
         </a>
@@ -42,7 +42,7 @@
       <li>
         <a
           href="#contact"
-          class="nav-link text-white no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
+          class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
           Contact
         </a>
@@ -55,7 +55,7 @@
       <button
         id="theme-toggle"
         aria-label="Toggle theme"
-        class="bg-transparent border border-red-500/20 rounded-full w-10 h-10 md:w-9 md:h-9 flex items-center justify-center cursor-pointer text-white transition-all duration-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-500"
+        class="bg-transparent border border-red-500/20 rounded-full w-10 h-10 md:w-9 md:h-9 flex items-center justify-center cursor-pointer text-[var(--text-primary)] transition-all duration-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-500"
       >
         <svg
           class="sun-icon"
@@ -110,11 +110,14 @@
         aria-expanded="false"
         class="md:hidden flex flex-col gap-1 bg-transparent border-0 cursor-pointer p-2 w-8 h-8 justify-center"
       >
-        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        <span
+          class="w-6 h-0.5 bg-[var(--text-primary)] rounded-sm transition-all duration-300"
         ></span>
-        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        <span
+          class="w-6 h-0.5 bg-[var(--text-primary)] rounded-sm transition-all duration-300"
         ></span>
-        <span class="w-6 h-0.5 bg-white rounded-sm transition-all duration-300"
+        <span
+          class="w-6 h-0.5 bg-[var(--text-primary)] rounded-sm transition-all duration-300"
         ></span>
       </button>
     </div>
@@ -124,12 +127,12 @@
   <ul
     id="nav-menu"
     aria-expanded="false"
-    class="flex md:hidden list-none m-0 p-0 items-center fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-[rgba(5,0,0,0.98)] backdrop-blur-xl flex-col justify-start p-8 gap-8 -translate-x-full transition-transform duration-300 ease-in-out border-t border-red-500/10 z-[999]"
+    class="flex md:hidden list-none m-0 p-0 items-center fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-[var(--bg-primary)] opacity-[0.98] backdrop-blur-xl flex-col justify-start p-8 gap-8 -translate-x-full transition-transform duration-300 ease-in-out border-t border-[var(--border-color)] z-[999]"
   >
     <li>
       <a
         href="#about"
-        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+        class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
         About
       </a>
@@ -137,7 +140,7 @@
     <li>
       <a
         href="#projects"
-        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+        class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
         Projects
       </a>
@@ -145,7 +148,7 @@
     <li>
       <a
         href="#contact"
-        class="nav-link-mobile text-white no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
+        class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
         Contact
       </a>

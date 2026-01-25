@@ -78,18 +78,18 @@ const projects: Project[] = [
 ];
 ---
 
-<section id="projects" class="relative w-full py-20 bg-[#050000]">
+<section id="projects" class="relative w-full py-20 bg-[var(--bg-primary)]">
   <div class="max-w-[1200px] mx-auto px-6 mt-10">
     <!-- Section Header with Navigation -->
     <div class="flex items-center justify-between">
-      <h2 class="text-4xl md:text-3xl sm:text-2xl font-extrabold text-white">
+      <h2 class="text-4xl md:text-3xl sm:text-2xl font-extrabold text-[var(--text-primary)]">
         Featured <span class="text-red-500">Projects</span>
       </h2>
 
       <!-- Navigation Buttons -->
       <div class="flex items-center gap-3">
         <button
-          class="swiper-button-prev-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-white hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
+          class="swiper-button-prev-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-[var(--text-primary)] hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
           aria-label="Previous project"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,7 +97,7 @@ const projects: Project[] = [
           </svg>
         </button>
         <button
-          class="swiper-button-next-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-white hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
+          class="swiper-button-next-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-[var(--text-primary)] hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
           aria-label="Next project"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -113,7 +113,7 @@ const projects: Project[] = [
         {projects.map((project) => (
           <div class="swiper-slide">
             <div 
-              class="project-card h-full group relative bg-[#0a0101] rounded-[24px] overflow-hidden border border-red-500/10 hover:border-red-500/30 transition-all duration-500 ease-out flex flex-col cursor-pointer"
+              class="project-card h-full group relative bg-[var(--bg-secondary)] rounded-[24px] overflow-hidden border border-[var(--border-color)] hover:border-red-500/30 transition-all duration-500 ease-out flex flex-col cursor-pointer"
               data-open-modal-id={project.id}
             >
               <!-- Image Container -->
@@ -127,7 +127,7 @@ const projects: Project[] = [
               <div class="p-6 flex flex-col flex-grow">
                 <!-- Title with External Link Icon -->
                 <div class="flex items-start justify-between mb-3">
-                  <h3 class="text-xl font-bold text-white group-hover:text-red-500 transition-colors duration-500 ease-out">
+                   <h3 class="text-xl font-bold text-[var(--text-primary)] group-hover:text-red-500 transition-colors duration-500 ease-out">
                     {project.title.slice(0, 20)}...
                   </h3>
                   <div class="flex gap-3">
@@ -136,7 +136,7 @@ const projects: Project[] = [
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="project-link-icon text-slate-400 hover:text-red-500 transition-colors duration-500 ease-out"
+                        class="project-link-icon text-[var(--text-secondary)] hover:text-red-500 transition-colors duration-500 ease-out"
                         aria-label={`GitHub for ${project.title}`}
                         title={`GitHub for ${project.title}`}
                       >
@@ -149,7 +149,7 @@ const projects: Project[] = [
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="project-link-icon text-slate-400 hover:text-red-500 transition-colors duration-500 ease-out"
+                      class="project-link-icon text-[var(--text-secondary)] hover:text-red-500 transition-colors duration-500 ease-out"
                       aria-label={`Visit ${project.title}`}
                       title={`Visit ${project.title}`}
                     >
@@ -163,19 +163,19 @@ const projects: Project[] = [
                 </div>
 
                 <!-- Description -->
-                <p class="text-slate-400 text-sm leading-relaxed mb-4 flex-grow">
+                <p class="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 flex-grow">
                   {project.description.slice(0, 50)}...
                 </p>
 
                 <!-- Technologies Badges -->
                 <div class="flex flex-wrap gap-2 mt-auto">
                   {project.technologies.slice(0, 3).map((tech) => (
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#450a0a] text-[#fca5a5] border border-red-500/20">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[var(--bg-accent)] text-[var(--text-muted)] border border-red-500/20">
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[#450a0a] text-[#fca5a5] border border-red-500/20">
+                    <span class="px-3 py-1 rounded-full text-xs font-medium bg-[var(--bg-accent)] text-[var(--text-muted)] border border-red-500/20">
                       +{project.technologies.length - 3}
                     </span>
                   )}

@@ -28,11 +28,11 @@ const technologies: Tech[] = [
 const duplicatedTech = [...technologies, ...technologies];
 ---
 
-<section class="relative w-full py-16 bg-[#050000] overflow-hidden">
+<section class="relative w-full py-16 bg-[var(--bg-primary)] overflow-hidden">
   <div class="max-w-[1200px] mx-auto px-6">
     <!-- Section Title -->
     <h2
-      class="text-xs font-semibold tracking-[0.2em] uppercase text-slate-400 text-center mb-12"
+      class="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center mb-12"
     >
       Trusted Technologies
     </h2>
@@ -41,13 +41,13 @@ const duplicatedTech = [...technologies, ...technologies];
     <div class="relative">
       <!-- Left Fade Mask -->
       <div
-        class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050000] to-transparent z-10 pointer-events-none"
+        class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none"
       >
       </div>
 
       <!-- Right Fade Mask -->
       <div
-        class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050000] to-transparent z-10 pointer-events-none"
+        class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none"
       >
       </div>
 
@@ -58,12 +58,12 @@ const duplicatedTech = [...technologies, ...technologies];
           {
             duplicatedTech.map((tech) => (
               <div class="tech-item flex flex-col items-center justify-center gap-3 min-w-[120px] md:min-w-[100px] flex-shrink-0 group cursor-pointer">
-                <div class="tech-icon w-20 h-20 md:w-14 md:h-14 py-4 flex items-center justify-center text-[#94a3b8] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
+                <div class="tech-icon w-20 h-20 md:w-14 md:h-14 py-4 flex items-center justify-center text-[var(--text-secondary)] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
                   <span class="text-6xl font-bold">
                     <i class={tech.icon} />
                   </span>
                 </div>
-                <span class="tech-name text-sm md:text-xs font-medium text-[#94a3b8] opacity-80 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 whitespace-nowrap">
+                <span class="tech-name text-sm md:text-xs font-medium text-[var(--text-secondary)] opacity-80 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 whitespace-nowrap">
                   {tech.name}
                 </span>
               </div>
@@ -74,12 +74,12 @@ const duplicatedTech = [...technologies, ...technologies];
           {
             duplicatedTech.map((tech) => (
               <div class="tech-item flex flex-col items-center justify-center gap-3 min-w-[120px] md:min-w-[100px] flex-shrink-0 group cursor-pointer">
-                <div class="tech-icon w-16 h-16 md:w-14 md:h-14 py-4 flex items-center justify-center text-[#94a3b8] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
+                <div class="tech-icon w-16 h-16 md:w-14 md:h-14 py-4 flex items-center justify-center text-[var(--text-secondary)] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
                   <span class="text-6xl font-bold">
                     <i class={tech.icon} />
                   </span>
                 </div>
-                <span class="tech-name text-sm md:text-xs font-medium text-[#94a3b8] opacity-80 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 whitespace-nowrap">
+                <span class="tech-name text-sm md:text-xs font-medium text-[var(--text-secondary)] opacity-80 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 whitespace-nowrap">
                   {tech.name}
                 </span>
               </div>

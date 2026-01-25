@@ -8,8 +8,7 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
@@ -35,6 +34,42 @@ import "../styles/global.css";
 </html>
 
 <style is:global>
+	:root {
+		/* Shared Colors */
+		--color-primary: #ef4444;
+		--color-primary-dark: #dc2626;
+		--color-primary-glow: rgba(239, 68, 68, 0.4);
+
+		/* Dark Theme (Default) */
+		--bg-primary: #050000;
+		--bg-secondary: #0a0101;
+		--bg-accent: rgba(5, 0, 0, 0.8);
+		--text-primary: #ffffff;
+		--text-secondary: #94a3b8; /* slate-400 */
+		--text-muted: #fca5a5;
+		--border-color: rgba(239, 68, 68, 0.1);
+		--card-bg: rgba(10, 1, 1, 0.95);
+		--nav-bg: rgba(5, 0, 0, 0.2);
+		--glass-bg: rgba(255, 255, 255, 0.03);
+		--hero-glow: rgba(69, 10, 10, 0.4);
+		--avatar-bg: linear-gradient(135deg, #1a0505 0%, #0a0000 100%);
+	}
+
+	html[data-theme="light"] {
+		--bg-primary: #ffffff;
+		--bg-secondary: #f8fafc;
+		--bg-accent: rgba(255, 255, 255, 0.8);
+		--text-primary: #0f172a;
+		--text-secondary: #475569; /* slate-600 */
+		--text-muted: #ef4444;
+		--border-color: rgba(239, 68, 68, 0.15);
+		--card-bg: rgba(255, 255, 255, 0.95);
+		--nav-bg: rgba(255, 255, 255, 0.2);
+		--glass-bg: rgba(15, 23, 42, 0.05);
+		--hero-glow: rgba(239, 68, 68, 0.1);
+		--avatar-bg: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%);
+	}
+
 	html,
 	body {
 		margin: 0;
@@ -42,6 +77,8 @@ import "../styles/global.css";
 		width: 100%;
 		overflow-x: hidden;
 		min-height: 100vh;
+		background-color: var(--bg-primary);
+		color: var(--text-primary);
 		font-family:
 			"Inter",
 			-apple-system,
@@ -54,30 +91,12 @@ import "../styles/global.css";
 			sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-	}
-
-	html[data-theme="dark"],
-	html[data-theme="dark"] body {
-		background-color: #050000;
-		color: #ffffff;
-	}
-
-	html[data-theme="light"],
-	html[data-theme="light"] body {
-		background-color: #ffffff;
-		color: #050000;
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
 	}
 
 	* {
 		box-sizing: border-box;
-	}
-
-	:root {
-		--color-primary: #ef4444;
-		--color-primary-dark: #dc2626;
-		--color-bg-dark: #050000;
-		--color-bg-dark-alt: #0a0101;
-		--color-text-primary: #ffffff;
-		--color-text-secondary: #fca5a5;
 	}
 </style>

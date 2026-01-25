@@ -18,20 +18,20 @@ const socialNetworks: SocialNetworksProps[] = [
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      class="social-link group relative flex items-center justify-center w-14 h-14 rounded-2xl bg-[rgba(10,1,1,0.6)] border border-red-500/20 backdrop-blur-md"
+      class="social-link group relative flex items-center justify-center w-14 h-14 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] backdrop-blur-md"
       aria-label={name}
     >
       <!-- Glow effect on hover -->
       <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/0 to-red-500/0 group-hover:from-red-500/10 group-hover:to-red-600/5 transition-all duration-500 ease-out pointer-events-none"></div>
 
       <!-- Icon -->
-      <i class={`${icon} social-icon text-2xl text-slate-300 relative z-10`}></i>
+      <i class={`${icon} social-icon text-2xl text-[var(--text-secondary)] relative z-10`}></i>
 
       <!-- Tooltip -->
-      <span class="tooltip absolute -bottom-10 left-1/2 px-3 py-1.5 bg-[rgba(10,1,1,0.9)] border border-red-500/30 rounded-lg text-xs font-medium text-slate-300 whitespace-nowrap backdrop-blur-sm pointer-events-none">
+      <span class="tooltip absolute -bottom-10 left-1/2 px-3 py-1.5 bg-[var(--card-bg)] border border-red-500/30 rounded-lg text-xs font-medium text-[var(--text-secondary)] whitespace-nowrap backdrop-blur-sm pointer-events-none">
         {name}
         <!-- Tooltip arrow -->
-        <span class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[rgba(10,1,1,0.9)] border-l border-t border-red-500/30 rotate-45"></span>
+        <span class="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[var(--card-bg)] border-l border-t border-red-500/30 rotate-45"></span>
       </span>
 
       <!-- Ripple effect container -->
@@ -46,7 +46,7 @@ const socialNetworks: SocialNetworksProps[] = [
   }
 
   .social-link:hover {
-    background-color: rgba(69, 10, 10, 0.4);
+    background-color: var(--bg-accent);
     border-color: rgba(239, 68, 68, 0.5);
     box-shadow: 0 10px 40px -10px rgba(239, 68, 68, 0.4);
     transform: scale(1.1) translateY(-4px);
@@ -118,10 +118,11 @@ const socialNetworks: SocialNetworksProps[] = [
   // Add ripple effect on click
   document.querySelectorAll('.social-link').forEach((link) => {
     link.addEventListener('click', function (e) {
-      const rippleContainer = this.querySelector('.ripple-container');
+      const target = e.currentTarget as HTMLElement;
+      const rippleContainer = target.querySelector('.ripple-container');
       if (!rippleContainer) return;
 
-      const rect = this.getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
       const x = (e as MouseEvent).clientX - rect.left;
       const y = (e as MouseEvent).clientY - rect.top;
 

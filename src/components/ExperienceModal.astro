@@ -9,7 +9,7 @@
 
         <!-- Header -->
         <div class="modal-header">
-            <h2 class="text-3xl font-bold text-white m-0">
+            <h2 class="text-3xl font-bold text-[var(--text-primary)] m-0">
                 Work <span class="text-red-500">Experience</span>
             </h2>
             <button id="close-modal" class="close-btn" aria-label="Close modal">
@@ -42,17 +42,17 @@
                             >2021 - 2025</span
                         >
                         <h3
-                            class="experience-title text-xl font-bold text-white mt-1"
+                            class="experience-title text-xl font-bold text-[var(--text-primary)] mt-1"
                         >
                             Full-Stack Developer
                         </h3>
                         <p
-                            class="experience-company text-[#fca5a5] font-medium mb-2"
+                            class="experience-company text-[var(--text-muted)] font-medium mb-2"
                         >
                             ALL AMERICAN TRAVEL
                         </p>
                         <p
-                            class="experience-description text-slate-400 leading-relaxed text-sm"
+                            class="experience-description text-[var(--text-secondary)] leading-relaxed text-sm"
                         >
                             Lideré la evolución y mantenimiento del sistema
                             principal, migrando la infraestructura de PHP nativo
@@ -63,8 +63,6 @@
                         </p>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>
@@ -79,7 +77,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(5, 0, 0, 0.85);
+        background: var(--bg-primary);
+        opacity: 0.85;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         padding: 20px;
@@ -101,8 +100,8 @@
         width: 100%;
         max-width: 600px;
         max-height: 80vh;
-        background: rgba(10, 1, 1, 0.9);
-        border: 1px solid rgba(239, 68, 68, 0.2);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
         border-radius: 24px;
         box-shadow:
             0 25px 50px -12px rgba(0, 0, 0, 0.5),

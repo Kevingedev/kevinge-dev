@@ -4,7 +4,7 @@
 
 <section
     id="contact"
-    class="relative py-20 md:py-28 px-6 bg-[#050000] overflow-hidden"
+    class="relative py-20 md:py-28 px-6 bg-[var(--bg-primary)] overflow-hidden"
 >
     <!-- Background Glow Effect -->
     <div class="contact-glow"></div>
@@ -18,12 +18,14 @@
                 Contacto
             </span>
             <h2
-                class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight"
+                class="text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] mb-4 tracking-tight"
             >
                 ¿Do you have a project in mind?
                 <span class="text-red-500 block sm:inline">Let's talk.</span>
             </h2>
-            <p class="text-lg text-slate-400 max-w-[600px] mx-auto">
+            <p
+                class="text-lg text-[var(--text-secondary)] max-w-[600px] mx-auto"
+            >
                 I am open to freelance work and collaborative projects. Feel
                 free to reach out to discuss opportunities—I am excited to work
                 with you.
@@ -33,7 +35,7 @@
         <!-- Contact Card -->
         <div class="max-w-[700px] mx-auto">
             <div
-                class="contact-card relative p-8 md:p-10 bg-[rgba(10,1,1,0.6)] border border-red-500/10 rounded-[24px] backdrop-blur-sm"
+                class="contact-card relative p-8 md:p-10 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-[24px] backdrop-blur-sm"
             >
                 <!-- Card glow effect -->
                 <div
@@ -50,7 +52,7 @@
                     <div class="form-group">
                         <label
                             for="name"
-                            class="block mb-2 text-sm font-medium text-slate-300"
+                            class="block mb-2 text-sm font-medium text-[var(--text-secondary)]"
                         >
                             Name
                         </label>
@@ -60,7 +62,7 @@
                             name="name"
                             required
                             placeholder="Your Name"
-                            class="form-input w-full px-5 py-4 bg-[#0a0000] border border-red-500/20 rounded-2xl text-white placeholder-slate-500 outline-none transition-all duration-300 focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
+                            class="form-input w-full px-5 py-4 bg-[var(--bg-primary)] border border-red-500/20 rounded-2xl text-[var(--text-primary)] placeholder-slate-500 outline-none transition-all duration-300 focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
                         />
                     </div>
 
@@ -68,7 +70,7 @@
                     <div class="form-group">
                         <label
                             for="email"
-                            class="block mb-2 text-sm font-medium text-slate-300"
+                            class="block mb-2 text-sm font-medium text-[var(--text-secondary)]"
                         >
                             Email
                         </label>
@@ -78,7 +80,7 @@
                             name="email"
                             required
                             placeholder="your@email.com"
-                            class="form-input w-full px-5 py-4 bg-[#0a0000] border border-red-500/20 rounded-2xl text-white placeholder-slate-500 outline-none transition-all duration-300 focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
+                            class="form-input w-full px-5 py-4 bg-[var(--bg-primary)] border border-red-500/20 rounded-2xl text-[var(--text-primary)] placeholder-slate-500 outline-none transition-all duration-300 focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
                         />
                     </div>
 
@@ -86,7 +88,7 @@
                     <div class="form-group">
                         <label
                             for="message"
-                            class="block mb-2 text-sm font-medium text-slate-300"
+                            class="block mb-2 text-sm font-medium text-[var(--text-secondary)]"
                         >
                             Message
                         </label>
@@ -96,7 +98,7 @@
                             required
                             rows="5"
                             placeholder="Let me know how I can help you!"
-                            class="form-input w-full px-5 py-4 bg-[#0a0000] border border-red-500/20 rounded-2xl text-white placeholder-slate-500 outline-none transition-all duration-300 resize-none focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
+                            class="form-input w-full px-5 py-4 bg-[var(--bg-primary)] border border-red-500/20 rounded-2xl text-[var(--text-primary)] placeholder-slate-500 outline-none transition-all duration-300 resize-none focus:border-red-500/60 focus:shadow-[0_0_20px_-5px_rgba(239,68,68,0.3)]"
                         ></textarea>
                     </div>
 
@@ -141,8 +143,7 @@
         height: 500px;
         background: radial-gradient(
             circle,
-            rgba(69, 10, 10, 0.3) 0%,
-            rgba(69, 10, 10, 0.1) 40%,
+            var(--hero-glow) 0%,
             transparent 70%
         );
         filter: blur(100px);

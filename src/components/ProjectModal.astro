@@ -28,7 +28,7 @@ const modalId = `modal-project-${project.id}`;
 
         <!-- Header -->
         <div class="modal-header">
-            <h2 class="text-3xl font-bold text-white m-0">
+            <h2 class="text-3xl font-bold text-[var(--text-primary)] m-0">
                 Project <span class="text-red-500">{project.title}</span>
             </h2>
             <button
@@ -72,7 +72,7 @@ const modalId = `modal-project-${project.id}`;
                     >
                         About the Project
                     </h4>
-                    <p class="text-slate-400 leading-relaxed">
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
                         {project.description}
                     </p>
                 </div>
@@ -163,7 +163,8 @@ const modalId = `modal-project-${project.id}`;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(5, 0, 0, 0.85);
+        background: var(--bg-primary);
+        opacity: 0.85;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         padding: 20px;
@@ -185,8 +186,8 @@ const modalId = `modal-project-${project.id}`;
         width: 100%;
         max-width: 700px;
         max-height: 90vh;
-        background: rgba(10, 1, 1, 0.95);
-        border: 1px solid rgba(239, 68, 68, 0.2);
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
         border-radius: 28px;
         box-shadow:
             0 25px 50px -12px rgba(0, 0, 0, 0.7),
@@ -222,11 +223,7 @@ const modalId = `modal-project-${project.id}`;
         justify-content: space-between;
         align-items: center;
         z-index: 10;
-        background: linear-gradient(
-            to bottom,
-            rgba(10, 1, 1, 0.8),
-            transparent
-        );
+        background: linear-gradient(to bottom, var(--bg-primary), transparent);
     }
 
     /* Close Button */
@@ -321,12 +318,12 @@ const modalId = `modal-project-${project.id}`;
         align-items: center;
         gap: 10px;
         padding: 12px 24px;
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
+        background: var(--glass-bg);
+        color: var(--text-primary);
         text-decoration: none;
         border-radius: 12px;
         font-weight: 600;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--border-color);
         transition: all 0.3s ease;
     }
 
@@ -339,9 +336,9 @@ const modalId = `modal-project-${project.id}`;
     /* Tech Badge */
     .tech-badge {
         padding: 6px 14px;
-        background: rgba(69, 10, 10, 0.4);
-        color: #fca5a5;
-        border: 1px solid rgba(239, 68, 68, 0.2);
+        background: var(--bg-accent);
+        color: var(--text-muted);
+        border: 1px solid var(--border-color);
         border-radius: 8px;
         font-size: 0.8rem;
         font-weight: 500;
