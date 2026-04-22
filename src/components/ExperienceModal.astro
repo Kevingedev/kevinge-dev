@@ -32,7 +32,40 @@
         <!-- Content -->
         <div class="modal-content custom-scrollbar">
             <div class="experience-list">
-                <!-- Experience Item 1 -->
+                <!-- Peñascal F5 -->
+                <div class="experience-item">
+                    <div class="experience-dot"></div>
+                    <div class="experience-line"></div>
+                    <div class="experience-info">
+                        <span
+                            class="experience-date text-red-500 font-semibold text-sm uppercase tracking-wider"
+                            >2025 - 2026</span
+                        >
+                        <h3
+                            class="experience-title text-xl font-bold text-[var(--text-primary)] mt-1"
+                        >
+                            Desarrollo Web Full Stack
+                        </h3>
+                        <p
+                            class="experience-company text-[var(--text-muted)] font-medium mb-2"
+                        >
+                            PEÑASCAL F5
+                        </p>
+                        <p
+                            class="experience-description text-[var(--text-secondary)] leading-relaxed text-sm"
+                        >
+                            Bootcamp intensivo enfocado en el aprendizaje de
+                            tecnologías modernas y metodologías ágiles. Lideré
+                            equipos como Scrum Master y Product Owner,
+                            gestionando tareas y planificaciones bajo el marco
+                            Scrum. Desarrollé aplicaciones Full Stack utilizando
+                            Python para el backend y Vue para el frontend, con
+                            persistencia en SQLite y MongoDB.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ALL AMERICAN TRAVEL -->
                 <div class="experience-item">
                     <div class="experience-dot"></div>
                     <div class="experience-line"></div>
@@ -259,7 +292,7 @@
 <script>
     const modal = document.getElementById("experience-modal");
     const closeBtn = document.getElementById("close-modal");
-    const trigger = document.querySelector("[data-open-experience]");
+    const triggers = document.querySelectorAll("[data-open-experience]");
 
     function openModal() {
         if (!modal) return;
@@ -279,12 +312,12 @@
         }, 400);
     }
 
-    if (trigger) {
+    triggers.forEach((trigger) => {
         trigger.addEventListener("click", (e) => {
             e.preventDefault();
             openModal();
         });
-    }
+    });
 
     if (closeBtn) {
         closeBtn.addEventListener("click", closeModal);
