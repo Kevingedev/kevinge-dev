@@ -22,6 +22,10 @@ const technologies: Tech[] = [
   { name: "SQL Server", icon: "devicon-microsoftsqlserver-plain" },
   { name: "Astro", icon: "devicon-astro-plain" },
   { name: "Vue", icon: "devicon-vuejs-plain" },
+  { name: "Python", icon: "devicon-python-plain" },
+  { name: "MongoDB", icon: "devicon-mongodb-plain" },
+  { name: "Git", icon: "devicon-git-plain" },
+  { name: "React", icon: "devicon-react-plain" },
 ];
 
 // Duplicate array for seamless infinite scroll
@@ -74,7 +78,7 @@ const duplicatedTech = [...technologies, ...technologies];
           {
             duplicatedTech.map((tech) => (
               <div class="tech-item flex flex-col items-center justify-center gap-3 min-w-[120px] md:min-w-[100px] flex-shrink-0 group cursor-pointer">
-                <div class="tech-icon w-16 h-16 md:w-14 md:h-14 py-4 flex items-center justify-center text-[var(--text-secondary)] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
+                <div class="tech-icon w-20 h-20 md:w-14 md:h-14 py-4 flex items-center justify-center text-[var(--text-secondary)] opacity-60 transition-all duration-300 group-hover:text-red-500 group-hover:opacity-100 group-hover:scale-110">
                   <span class="text-6xl font-bold">
                     <i class={tech.icon} />
                   </span>
