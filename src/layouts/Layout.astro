@@ -1,10 +1,18 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
+import { useTranslations, type Locale } from "../i18n";
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t } = useTranslations(locale);
 ---
 
 <!doctype html>
-<html lang="es" data-theme="dark">
+<html lang={locale} data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +20,10 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="Portfolio de Kevin Ruiz - Desarrollador Full Stack"
+			content={t("layout.description")}
 		/>
-		<title>Kevin Ruiz - Portfolio</title>
+		<link rel="canonical" href={locale === "en" ? "/" : `/${locale}/`} />
+		<title>{t("layout.title")}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -28,7 +37,7 @@ import "../styles/global.css";
 		/>
 	</head>
 	<body>
-		<Navbar />
+		<Navbar locale={locale} />
 		<slot />
 	</body>
 </html>

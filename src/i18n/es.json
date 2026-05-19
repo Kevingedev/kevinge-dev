@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "about": "Sobre m\u00ed",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "hireMe": "Contr\u00e1tame"
+  },
+  "hero": {
+    "available": "DISPONIBLE PARA TRABAJAR",
+    "heading": "Construyendo",
+    "headingHighlight": "experiencias digitales.",
+    "subtitle": {
+      "beforeName": "Soy ",
+      "afterName": ", Desarrollador Full-Stack con ",
+      "experienceText": "+ tres a\u00f1os de experiencia",
+      "afterExperience": ", apasionado por crear soluciones innovadoras y dar vida a las ideas a trav\u00e9s del c\u00f3digo."
+    },
+    "seeMyWork": "Ver mi Trabajo",
+    "experience": "Experiencia",
+    "contactMe": "Cont\u00e1ctame"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "titleHighlight": "Laboral",
+    "closeAria": "Cerrar modal",
+    "jobs": [
+      {
+        "date": "2025 - 2026",
+        "role": "Desarrollo Web Full Stack",
+        "company": "PE\u00d1ASCAL F5",
+        "description": "Bootcamp intensivo enfocado en el aprendizaje de tecnolog\u00edas modernas y metodolog\u00edas \u00e1giles. Lider\u00e9 equipos como Scrum Master y Product Owner, gestionando tareas y planificaciones bajo el marco Scrum. Desarroll\u00e9 aplicaciones Full Stack utilizando Python para el backend y Vue para el frontend, con persistencia en SQLite y MongoDB."
+      },
+      {
+        "date": "2021 - 2025",
+        "role": "Full-Stack Developer",
+        "company": "ALL AMERICAN TRAVEL",
+        "description": "Lider\u00e9 la evoluci\u00f3n y mantenimiento del sistema principal, migrando la infraestructura de PHP nativo a Laravel para mejorar la escalabilidad. Implement\u00e9 nuevas funcionalidades y reportes de ventas cruciales, manejando la persistencia de datos con MySQL y SQL Server."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "titleHighlight": "Destacados",
+    "prevAria": "Proyecto anterior",
+    "nextAria": "Siguiente proyecto",
+    "list": [
+      {
+        "title": "Flow Movies",
+        "description": "Desarroll\u00e9 esta aplicaci\u00f3n web que a trav\u00e9s de una API permite a los usuarios buscar pel\u00edculas y series en l\u00ednea, ver informaci\u00f3n detallada sobre ellas."
+      },
+      {
+        "title": "Sugoi",
+        "description": "Es un Proyecto para amantes de Anime y Manga, donde podr\u00e1s crear tu lista favoritos, vistos y pendientes. Adem\u00e1s de interactuar en el foro de la web. (Proyecto en colaboraci\u00f3n con compa\u00f1eros de Pe\u00f1ascal F5)"
+      },
+      {
+        "title": "Unity Sales",
+        "description": "Desarroll\u00e9 esta aplicaci\u00f3n web moderna de gesti\u00f3n de ventas e inventario dise\u00f1ada para optimizar las operaciones comerciales incluyendo inteligencia para facilitar la toma de decisiones dentro de la empresa."
+      },
+      {
+        "title": "E-Commerce (Gourmet on the Go)",
+        "description": "Desarroll\u00e9 esta tienda online moderna enfocada en la venta de alimentos precocinados. (Proyecto en colaboraci\u00f3n con compa\u00f1eros de Pe\u00f1ascal F5)"
+      },
+      {
+        "title": "CV Analyzer",
+        "description": "Desarrollo de un Analizador Inteligente de Curr\u00edculums para optimizar la selecci\u00f3n de personal."
+      },
+      {
+        "title": "Frog Game",
+        "description": "Frog Game es un juego de l\u00f3gica m\u00f3vil desarrollado para Android, implementado en Java y utilizando Android Studio."
+      }
+    ]
+  },
+  "projectModal": {
+    "titlePrefix": "Proyecto",
+    "about": "Sobre el Proyecto",
+    "technologies": "Tecnolog\u00edas Utilizadas",
+    "liveDemo": "Demo en Vivo",
+    "githubRepo": "Repositorio GitHub",
+    "closeAria": "Cerrar modal"
+  },
+  "contact": {
+    "badge": "Contacto",
+    "heading": "\u00bfTienes un proyecto en mente?",
+    "headingHighlight": "Hablemos.",
+    "description": "Estoy abierto a trabajos freelance y proyectos colaborativos. No dudes en contactarme para hablar sobre oportunidades \u2014 estoy emocionado de trabajar contigo.",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu Nombre",
+    "emailLabel": "Email",
+    "emailPlaceholder": "tu@email.com",
+    "messageLabel": "Mensaje",
+    "messagePlaceholder": "\u00a1Cu\u00e9ntame c\u00f3mo puedo ayudarte!",
+    "sendButton": "Enviar Mensaje",
+    "sendingButton": "Enviando...",
+    "successMessage": "\u00a1Mensaje enviado con \u00e9xito!",
+    "errorMessage": "Algo sali\u00f3 mal.",
+    "serverError": "Error al conectar con el servidor."
+  },
+  "techCarousel": {
+    "title": "Tecnolog\u00edas de Confianza"
+  },
+  "footer": {
+    "rights": "\u00a9 {year} Kevin Ruiz. Todos los derechos reservados."
+  },
+  "layout": {
+    "description": "Kevin Ruiz - Portafolio de Desarrollador Full Stack",
+    "title": "Kevin Ruiz - Portafolio"
+  }
+}

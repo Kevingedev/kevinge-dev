@@ -3,6 +3,7 @@
 import ProjectImage from './ProjectImage.astro';
 import ProjectModal from './ProjectModal.astro';
 import type { ImageMetadata } from 'astro';
+import { useTranslations, type Locale } from "../i18n";
 
 // Import project images
 import gourmetImg from '../assets/projects/gourmetonthego.png';
@@ -12,6 +13,12 @@ import unitySalesImg from '../assets/projects/unitysales.png';
 import flowMoviesImg from '../assets/projects/flowmovies.png';
 import animeImg from '../assets/projects/sugoi.png';
 
+interface Props {
+    locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t, tRaw } = useTranslations(locale);
 
 interface Project {
   id: number;
@@ -24,12 +31,19 @@ interface Project {
   github?: string;
 }
 
+interface ProjectTranslation {
+  title: string;
+  description: string;
+}
+
+const projectTranslations = tRaw("projects.list") as ProjectTranslation[];
+
 // Sample projects data - replace with your actual projects
 const projects: Project[] = [
   {
     id: 0,
-    title: 'Flow Movies',
-    description: 'Desarrollé esta aplicación web que a través de una API permite a los usuarios buscar películas y series en línea, ver información detallada sobre ellas.',
+    title: projectTranslations[0]?.title ?? 'Flow Movies',
+    description: projectTranslations[0]?.description ?? '',
     image: flowMoviesImg,
     imageBg: '#1e293b',
     technologies: ['Astro', 'TypeScript', 'API REST', 'Tailwind'],
@@ -38,8 +52,8 @@ const projects: Project[] = [
   },
   {
     id: 1,
-    title: 'Sugoi',
-    description: 'Es un Proyecto para amantes de Anime y Manga, donde podras crear tu lista favoritos, vistos y pendientes. Ademas de interactuar en el foro de la web. (Proyecto en colaboración con compañeros de Peñascal F5)',
+    title: projectTranslations[1]?.title ?? 'Sugoi',
+    description: projectTranslations[1]?.description ?? '',
     image: animeImg,
     imageBg: '#1a1a2e',
     technologies: ['Vue', 'TypeScript', 'API REST', 'AI Agents', 'JSON Server'],
@@ -48,8 +62,8 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'Unity Sales',
-    description: 'Desarrollé esta aplicación web moderna de gestión de ventas e inventario diseñada para optimizar las operaciones comerciales incluyendo inteligencia para facilitar la toma de decisiones dentro de la empresa.',
+    title: projectTranslations[2]?.title ?? 'Unity Sales',
+    description: projectTranslations[2]?.description ?? '',
     image: unitySalesImg,
     imageBg: '#0a0a0f',
     technologies: ['Next.js', 'JavaScript', 'Supabase', 'Tailwind'],
@@ -58,8 +72,8 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'E-Commerce (Gourmet on the Go)',
-    description: 'Desarrollé esta tienda online moderna enfocada en la venta de alimentos precocinados. (Proyecto en colaboración con compañeros de Peñascal F5)',
+    title: projectTranslations[3]?.title ?? 'E-Commerce (Gourmet on the Go)',
+    description: projectTranslations[3]?.description ?? '',
     image: gourmetImg,
     imageBg: '#1e293b',
     technologies: ['JavaScript', 'HTML', 'CSS', 'JSON Server'],
@@ -68,8 +82,8 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'CV Analyzer',
-    description: 'Desarrollo de un Analizador Inteligente de Currículums para optimizar la selección de personal.',
+    title: projectTranslations[4]?.title ?? 'CV Analyzer',
+    description: projectTranslations[4]?.description ?? '',
     image: cvAnalyzerImg,
     imageBg: '#0f172a',
     technologies: ['PHP', 'Laravel', 'MySQL', 'Tailwind', 'Python'],
@@ -78,8 +92,8 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: 'Frog Game',
-    description: 'Frog Game es un juego de lógica móvil desarrollado para Android, implementado en Java y utilizando Android Studio.',
+    title: projectTranslations[5]?.title ?? 'Frog Game',
+    description: projectTranslations[5]?.description ?? '',
     image: frogGameImg,
     imageBg: '#1a1a2e',
     technologies: ['Kotlin', 'Java'],
@@ -94,14 +108,14 @@ const projects: Project[] = [
     <!-- Section Header with Navigation -->
     <div class="flex items-center justify-between">
       <h2 class="text-4xl md:text-3xl sm:text-2xl font-extrabold text-[var(--text-primary)]">
-        Featured <span class="text-red-500">Projects</span>
+        {t('projects.title')} <span class="text-red-500">{t('projects.titleHighlight')}</span>
       </h2>
 
       <!-- Navigation Buttons -->
       <div class="flex items-center gap-3">
         <button
           class="swiper-button-prev-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-[var(--text-primary)] hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
-          aria-label="Previous project"
+          aria-label={t('projects.prevAria')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m15 18-6-6 6-6"></path>
@@ -109,7 +123,7 @@ const projects: Project[] = [
         </button>
         <button
           class="swiper-button-next-custom w-12 h-12 rounded-full border-2 border-red-500/50 bg-transparent flex items-center justify-center text-[var(--text-primary)] hover:bg-red-500/10 hover:border-red-500 transition-all duration-300 cursor-pointer"
-          aria-label="Next project"
+          aria-label={t('projects.nextAria')}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m9 18 6-6-6-6"></path>
@@ -201,7 +215,7 @@ const projects: Project[] = [
 
   <!-- Project Modals -->
   {projects.map((project) => (
-    <ProjectModal project={project} />
+    <ProjectModal project={project} locale={locale} />
   ))}
 </section>
 
@@ -306,7 +320,6 @@ const projects: Project[] = [
             },
           },
         });
-        // console.log(swiper);
       } else {
         setTimeout(initSwiper, 100);
       }

@@ -1,5 +1,14 @@
 ---
 // TechCarousel component with infinite horizontal scroll
+import { useTranslations, type Locale } from "../i18n";
+
+interface Props {
+    locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t } = useTranslations(locale);
+
 interface Tech {
   name: string;
   icon: string;
@@ -38,7 +47,7 @@ const duplicatedTech = [...technologies, ...technologies];
     <h2
       class="text-xs font-semibold tracking-[0.2em] uppercase text-[var(--text-secondary)] text-center mb-12"
     >
-      Trusted Technologies
+      {t('techCarousel.title')}
     </h2>
 
     <!-- Carousel Container with Fade Masks -->

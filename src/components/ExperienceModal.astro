@@ -1,6 +1,23 @@
 ---
 // ExperienceModal.astro
 // Premium Glassmorphism Modal for Work Experience
+import { useTranslations, type Locale } from "../i18n";
+
+interface Props {
+    locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t, tRaw } = useTranslations(locale);
+
+interface Job {
+    date: string;
+    role: string;
+    company: string;
+    description: string;
+}
+
+const jobs = tRaw("experience.jobs") as Job[];
 ---
 
 <div id="experience-modal" class="modal-backdrop hidden">
@@ -10,9 +27,9 @@
         <!-- Header -->
         <div class="modal-header">
             <h2 class="text-3xl font-bold text-[var(--text-primary)] m-0">
-                Work <span class="text-red-500">Experience</span>
+                {t('experience.title')} <span class="text-red-500">{t('experience.titleHighlight')}</span>
             </h2>
-            <button id="close-modal" class="close-btn" aria-label="Close modal">
+            <button id="close-modal" class="close-btn" aria-label={t('experience.closeAria')}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -32,70 +49,34 @@
         <!-- Content -->
         <div class="modal-content custom-scrollbar">
             <div class="experience-list">
-                <!-- Peñascal F5 -->
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-line"></div>
-                    <div class="experience-info">
-                        <span
-                            class="experience-date text-red-500 font-semibold text-sm uppercase tracking-wider"
-                            >2025 - 2026</span
-                        >
-                        <h3
-                            class="experience-title text-xl font-bold text-[var(--text-primary)] mt-1"
-                        >
-                            Desarrollo Web Full Stack
-                        </h3>
-                        <p
-                            class="experience-company text-[var(--text-muted)] font-medium mb-2"
-                        >
-                            PEÑASCAL F5
-                        </p>
-                        <p
-                            class="experience-description text-[var(--text-secondary)] leading-relaxed text-sm"
-                        >
-                            Bootcamp intensivo enfocado en el aprendizaje de
-                            tecnologías modernas y metodologías ágiles. Lideré
-                            equipos como Scrum Master y Product Owner,
-                            gestionando tareas y planificaciones bajo el marco
-                            Scrum. Desarrollé aplicaciones Full Stack utilizando
-                            Python para el backend y Vue para el frontend, con
-                            persistencia en SQLite y MongoDB.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ALL AMERICAN TRAVEL -->
-                <div class="experience-item">
-                    <div class="experience-dot"></div>
-                    <div class="experience-line"></div>
-                    <div class="experience-info">
-                        <span
-                            class="experience-date text-red-500 font-semibold text-sm uppercase tracking-wider"
-                            >2021 - 2025</span
-                        >
-                        <h3
-                            class="experience-title text-xl font-bold text-[var(--text-primary)] mt-1"
-                        >
-                            Full-Stack Developer
-                        </h3>
-                        <p
-                            class="experience-company text-[var(--text-muted)] font-medium mb-2"
-                        >
-                            ALL AMERICAN TRAVEL
-                        </p>
-                        <p
-                            class="experience-description text-[var(--text-secondary)] leading-relaxed text-sm"
-                        >
-                            Lideré la evolución y mantenimiento del sistema
-                            principal, migrando la infraestructura de PHP nativo
-                            a Laravel para mejorar la escalabilidad. Implementé
-                            nuevas funcionalidades y reportes de ventas
-                            cruciales, manejando la persistencia de datos con
-                            MySQL y SQL Server.
-                        </p>
-                    </div>
-                </div>
+                {
+                    jobs.map((job) => (
+                        <div class="experience-item">
+                            <div class="experience-dot"></div>
+                            <div class="experience-line"></div>
+                            <div class="experience-info">
+                                <span
+                                    class="experience-date text-red-500 font-semibold text-sm uppercase tracking-wider"
+                                >{job.date}</span>
+                                <h3
+                                    class="experience-title text-xl font-bold text-[var(--text-primary)] mt-1"
+                                >
+                                    {job.role}
+                                </h3>
+                                <p
+                                    class="experience-company text-[var(--text-muted)] font-medium mb-2"
+                                >
+                                    {job.company}
+                                </p>
+                                <p
+                                    class="experience-description text-[var(--text-secondary)] leading-relaxed text-sm"
+                                >
+                                    {job.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>

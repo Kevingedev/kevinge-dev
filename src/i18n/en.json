@@ -1,0 +1,108 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hireMe": "Hire Me"
+  },
+  "hero": {
+    "available": "AVAILABLE FOR WORK",
+    "heading": "Building digital",
+    "headingHighlight": "experiences.",
+    "subtitle": {
+      "beforeName": "I'm ",
+      "afterName": ", a Full-Stack Developer with ",
+      "experienceText": "+ three years of experience",
+      "afterExperience": ", passionate about creating innovative solutions and bringing ideas to life through code."
+    },
+    "seeMyWork": "See My Work",
+    "experience": "Experience",
+    "contactMe": "Contact Me"
+  },
+  "experience": {
+    "title": "Work",
+    "titleHighlight": "Experience",
+    "closeAria": "Close modal",
+    "jobs": [
+      {
+        "date": "2025 - 2026",
+        "role": "Full Stack Web Development",
+        "company": "PE\u00d1ASCAL F5",
+        "description": "Intensive bootcamp focused on learning modern technologies and agile methodologies. Led teams as Scrum Master and Product Owner, managing tasks and planning under the Scrum framework. Developed Full Stack applications using Python for the backend and Vue for the frontend, with persistence in SQLite and MongoDB."
+      },
+      {
+        "date": "2021 - 2025",
+        "role": "Full-Stack Developer",
+        "company": "ALL AMERICAN TRAVEL",
+        "description": "Led the evolution and maintenance of the main system, migrating the infrastructure from native PHP to Laravel to improve scalability. Implemented new functionalities and crucial sales reports, managing data persistence with MySQL and SQL Server."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured",
+    "titleHighlight": "Projects",
+    "prevAria": "Previous project",
+    "nextAria": "Next project",
+    "list": [
+      {
+        "title": "Flow Movies",
+        "description": "I developed this web application that, through an API, allows users to search for movies and series online, viewing detailed information about them."
+      },
+      {
+        "title": "Sugoi",
+        "description": "A project for Anime and Manga lovers, where you can create your lists of favorites, watched, and pending. Plus interact in the web forum. (Project in collaboration with classmates from Pe\u00f1ascal F5)"
+      },
+      {
+        "title": "Unity Sales",
+        "description": "I developed this modern sales and inventory management web application designed to optimize business operations, including intelligence to facilitate decision-making within the company."
+      },
+      {
+        "title": "E-Commerce (Gourmet on the Go)",
+        "description": "I developed this modern online store focused on selling pre-cooked food. (Project in collaboration with classmates from Pe\u00f1ascal F5)"
+      },
+      {
+        "title": "CV Analyzer",
+        "description": "Development of an Intelligent Curriculum Analyzer to optimize personnel selection."
+      },
+      {
+        "title": "Frog Game",
+        "description": "Frog Game is a mobile logic game developed for Android, implemented in Java and using Android Studio."
+      }
+    ]
+  },
+  "projectModal": {
+    "titlePrefix": "Project",
+    "about": "About the Project",
+    "technologies": "Technologies Used",
+    "liveDemo": "Live Demo",
+    "githubRepo": "GitHub Repo",
+    "closeAria": "Close modal"
+  },
+  "contact": {
+    "badge": "Contact",
+    "heading": "Do you have a project in mind?",
+    "headingHighlight": "Let's talk.",
+    "description": "I am open to freelance work and collaborative projects. Feel free to reach out to discuss opportunities \u2014 I am excited to work with you.",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your Name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Let me know how I can help you!",
+    "sendButton": "Send Message",
+    "sendingButton": "Sending...",
+    "successMessage": "Message sent successfully!",
+    "errorMessage": "Something went wrong.",
+    "serverError": "Error connecting to the server."
+  },
+  "techCarousel": {
+    "title": "Trusted Technologies"
+  },
+  "footer": {
+    "rights": "\u00a9 {year} Kevin Ruiz. All rights reserved."
+  },
+  "layout": {
+    "description": "Kevin Ruiz - Full Stack Developer Portfolio",
+    "title": "Kevin Ruiz - Portfolio"
+  }
+}

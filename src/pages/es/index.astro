@@ -1,0 +1,20 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+import TechCarousel from "../../components/TechCarousel.astro";
+import ProjectCarousel from "../../components/ProjectCarousel.astro";
+import Footer from "../../components/Footer.astro";
+import ContactForm from "../../components/Contact.astro";
+
+const locale = "es";
+---
+
+<Layout locale={locale}>
+	<div class="overflow-x-hidden">
+		<Hero locale={locale} />
+		<TechCarousel locale={locale} />
+		<ProjectCarousel locale={locale} />
+		<ContactForm locale={locale} />
+		<Footer locale={locale} />
+	</div>
+</Layout>

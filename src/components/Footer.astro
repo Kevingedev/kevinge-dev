@@ -1,5 +1,14 @@
 ---
 // Footer component with premium design and red theme
+import { useTranslations, type Locale } from "../i18n";
+
+interface Props {
+    locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t } = useTranslations(locale);
+
 interface SocialLink {
     name: string;
     href: string;
@@ -34,13 +43,13 @@ const currentYear = new Date().getFullYear();
         <!-- Brand Section (Left) -->
         <div class="flex flex-col items-center md:items-start gap-2">
             <a
-                href="/"
+                href={locale === "en" ? "/" : `/${locale}/`}
                 class="text-xl font-bold text-[var(--text-primary)] hover:text-red-500 transition-colors duration-300"
             >
                 Kevin<span class="text-red-500"> Ruiz</span>
             </a>
             <p class="text-sm text-[var(--text-secondary)] text-center md:text-left">
-                © {currentYear} Kevin Ruiz. All rights reserved.
+                {t('footer.rights', { year: currentYear })}
             </p>
         </div>
 

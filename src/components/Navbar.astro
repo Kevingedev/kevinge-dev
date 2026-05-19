@@ -1,5 +1,14 @@
 ---
 // Navbar component with glassmorphism effect and red theme
+import { useTranslations, type Locale } from "../i18n";
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = "en" } = Astro.props;
+const { t } = useTranslations(locale);
+const otherLocale = locale === "en" ? "es" : "en";
 ---
 
 <nav
@@ -10,7 +19,7 @@
   >
     <!-- Logo -->
     <a
-      href="/"
+      href={locale === "en" ? "/" : `/${locale}/`}
       class="flex items-center gap-2 no-underline font-bold text-xl text-[var(--text-primary)] hover:scale-105 transition-transform duration-300"
     >
       <span class="text-red-500 font-extrabold text-2xl leading-none"
@@ -28,7 +37,7 @@
           href="#about"
           class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
-          About
+          {t('nav.about')}
         </a>
       </li>
       <li>
@@ -36,7 +45,7 @@
           href="#projects"
           class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
-          Projects
+          {t('nav.projects')}
         </a>
       </li>
       <li>
@@ -44,13 +53,22 @@
           href="#contact"
           class="nav-link text-[var(--text-primary)] no-underline font-medium text-base relative py-2 transition-colors duration-300 hover:text-red-500"
         >
-          Contact
+          {t('nav.contact')}
         </a>
       </li>
     </ul>
 
     <!-- Actions -->
     <div class="flex items-center gap-4 md:gap-3">
+      <!-- Language Switcher -->
+      <a
+        href={otherLocale === "en" ? "/" : `/${otherLocale}/`}
+        aria-label={otherLocale === "en" ? "Switch to English" : "Cambiar a español"}
+        class="lang-switcher bg-transparent border border-red-500/20 rounded-full w-10 h-10 md:w-9 md:h-9 flex items-center justify-center text-[var(--text-primary)] no-underline font-bold text-sm transition-all duration-300 hover:bg-red-500/10 hover:border-red-500/40 hover:text-red-500"
+      >
+        {otherLocale === "en" ? "EN" : "ES"}
+      </a>
+
       <!-- Theme Toggle -->
       <button
         id="theme-toggle"
@@ -100,7 +118,7 @@
         href="#contact"
         class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 md:px-5 md:py-2 rounded-full font-semibold text-[0.95rem] md:text-sm text-white bg-gradient-to-br from-red-500 to-red-600 shadow-[0_4px_14px_0_rgba(239,68,68,0.2)] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_0_rgba(239,68,68,0.4)] hover:from-red-600 hover:to-red-500 active:translate-y-0"
       >
-        Hire Me
+        {t('nav.hireMe')}
       </a>
 
       <!-- Mobile Menu Toggle -->
@@ -123,7 +141,7 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Navigation (Moved outside to ensure visibility) -->
+  <!-- Mobile Menu Navigation -->
   <ul
     id="nav-menu"
     aria-expanded="false"
@@ -134,7 +152,7 @@
         href="#about"
         class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
-        About
+        {t('nav.about')}
       </a>
     </li>
     <li>
@@ -142,7 +160,7 @@
         href="#projects"
         class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
-        Projects
+        {t('nav.projects')}
       </a>
     </li>
     <li>
@@ -150,7 +168,7 @@
         href="#contact"
         class="nav-link-mobile text-[var(--text-primary)] no-underline font-medium text-lg py-2 transition-colors duration-300 hover:text-red-500"
       >
-        Contact
+        {t('nav.contact')}
       </a>
     </li>
   </ul>
@@ -202,6 +220,12 @@
 
   #theme-toggle[data-theme="dark"] .moon-icon {
     display: block;
+  }
+
+  /* Language switcher styles */
+  .lang-switcher {
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.02em;
   }
 </style>
 
